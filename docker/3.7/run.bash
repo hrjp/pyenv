@@ -65,5 +65,5 @@ docker run -it --name $CONTAINER_NAME \
             $REMOVE_CMD \
             --net=host \
             --privileged \
-            hrjp/python:3.7 /bin/bash
+            python:3.7 /bin/bash
 
