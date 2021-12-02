@@ -13,7 +13,7 @@ usage_exit() {
         echo " -----------------------------------------------------------------------------" 1>&2
         echo " -g                   | GPU enabled" 1>&2
         echo " -r                   | remove when exit the container" 1>&2
-        echo " -n CONTAINER_NAME    | container name (default : naviton_melodic)" 1>&2
+        echo " -n CONTAINER_NAME    | container name (default : python_container)" 1>&2
         echo " -s SHARE_FOLDER_PATH | directory path shared with the inside of the container" 1>&2
         echo " -----------------------------------------------------------------------------" 1>&2
         exit 1
@@ -65,5 +65,5 @@ docker run -it --name $CONTAINER_NAME \
             $REMOVE_CMD \
             --net=host \
             --privileged \
-            nvidia/opengl:1.2-glvnd-runtime-ubuntu18.04 /bin/bash
+            hrjp/python:3.7 /bin/bash
 
