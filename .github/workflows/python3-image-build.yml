@@ -1,4 +1,4 @@
-name: Python3 foxy image build 
+name: Python3 image build 
 on:
   workflow_dispatch:
   schedule:
