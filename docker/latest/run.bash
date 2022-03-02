@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CONTAINER_NAME=python_container
+IMAGE_NAME=hrjp/python:3
 SHARE_FOLDER_PATH=""
 SHARE_FOLDER_CMD=""
 GPU_CMD=""
@@ -13,7 +14,7 @@ usage_exit() {
         echo " -----------------------------------------------------------------------------" 1>&2
         echo " -g                   | GPU enabled" 1>&2
         echo " -r                   | remove when exit the container" 1>&2
-        echo " -n CONTAINER_NAME    | container name (default : python_container)" 1>&2
+        echo " -n CONTAINER_NAME    | container name (default : $CONTAINER_NAME )" 1>&2
         echo " -s SHARE_FOLDER_PATH | directory path shared with the inside of the container" 1>&2
         echo " -----------------------------------------------------------------------------" 1>&2
         exit 1
@@ -65,5 +66,5 @@ docker run -it --name $CONTAINER_NAME \
             $REMOVE_CMD \
             --net=host \
             --privileged \
-            hrjp/python:3 /bin/bash
+            $IMAGE_NAME /bin/bash
 
