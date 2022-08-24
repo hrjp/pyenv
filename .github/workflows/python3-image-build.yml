@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./docker/${{matrix.python_ver}}
-          platforms: linux/amd64
+          platforms: linux/amd64, linux/arm64
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/python:${{matrix.python_ver}}
