@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CONTAINER_NAME=python_container
-IMAGE_NAME=hrjp/python:3
+CONTAINER_NAME=python_latest
+IMAGE_NAME=hrjp/python:latest
 SHARE_FOLDER_PATH=""
 SHARE_FOLDER_CMD=""
 GPU_CMD=""

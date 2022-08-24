@@ -9,6 +9,10 @@ jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python_ver: [latest]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
@@ -22,7 +26,8 @@ jobs:
       - name: Build and Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
-          context: ./docker/latest
+          context: ./docker/${{matrix.python_ver}}
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/python:3
+            ${{ secrets.DOCKER_USERNAME }}/python:${{matrix.python_ver}}
